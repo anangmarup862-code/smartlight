@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SmartLight — Professional</title>
+  <link href="static/style.css" rel="stylesheet">
+</head>
+<body>
+  <div class="app">
+    <!-- HEADER -->
+    <header class="topbar">
+      <div class="brand">
+        <img src="static/7aa46a0b-d300-4412-8e82-113b9fd897f6.jpeg" alt="logo" class="logo-png">
+        <div class="title">SmartLight</div>
+      </div>
+      <div class="subtitle">Dark · Neon · by ABAH</div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="content">
+      <!-- PANEL KONTROL -->
+      <aside class="panel">
+        <h3>⚡ Perhitungan & Pengaturan</h3>
+
+        <!-- KATEGORI RUANGAN -->
+        <label class="label">Kategori Ruangan</label>
+        <select id="categorySelect" class="select"></select>
+
+        <!-- JENIS RUANGAN -->
+        <label class="label">Jenis Ruangan</label>
+        <select id="roomSelect" class="select"></select>
+
+        <!-- UKURAN -->
+        <div class="sizeRow">
+          <div>
+            <label class="label">Panjang (m)</label>
+            <input id="length" type="number" step="0.1" value="6" class="input" />
+          </div>
+          <div>
+            <label class="label">Lebar (m)</label>
+            <input id="width" type="number" step="0.1" value="4" class="input" />
+          </div>
+        </div>
+
+        <!-- MODE -->
+        <label class="label">Mode Perhitungan</label>
+        <div id="modeSeg" class="segmented">
+          <button class="seg-btn active" data-mode="mode1">Mode 1 — Per Titik</button>
+          <button class="seg-btn" data-mode="mode2">Mode 2 — Total + KKK</button>
+        </div>
+
+        <!-- LAMPU -->
+        <label class="label">Pilih Lampu</label>
+        <select id="lampSelect" class="select"></select>
+
+        <!-- FAKTOR UTILISASI -->
+        <label class="label">Faktor Utilisasi (η)</label>
+        <select id="eta" class="select">
+          <option value="0.7">0.70</option>
+          <option value="0.8" selected>0.80</option>
+          <option value="0.9">0.90</option>
+        </select>
+
+        <!-- MODE 2 EXTRA -->
+        <div id="mode2fields" style="display:none;">
+          <label class="label">Gunakan hasil Mode1?</label>
+          <div class="checkbox-row">
+            <input id="use_calc" type="checkbox" checked />
+            <label class="muted">Jika tidak, isi manual</label>
+          </div>
+
+          <label class="label">Manual - Jumlah Lampu</label>
+          <input id="manual_count" type="number" class="input"  value="0" min="0" />
+
+          <label class="label">Daya per lampu (W)</label>
+          <select id="manual_count" class="select">
+            
+          <label class="label">Jumlah KKK</label>
+          <input id="kkk_count" type="number" class="input" value="0" min="0"/>
+
+          <label class="label">Daya per KKK (W)</label>
+          <select id="kkk_watt" class="select">
+            <option value="50">50 W</option>
+            <option value="100">100 W</option>
+            <option value="200">200 W</option>
+            <option value="200">250 W</option>
+            <option value="200">300 W</option>
+            <option value="200">350 W</option>
+            <option value="500">500 W</option>
+            <option value="1000">1000 W</option>
+          </select>
+
+          <label class="label">Jumlah Grup</label>
+          <input id="groups" type="number" class="input" value="1" min="1"/>
+
+          <label class="label">Fasa</label>
+          <select id="phase_choice" class="select">
+            <option value="1phase">1-Phase (220V)</option>
+            <option value="3phase">3-Phase (400V)</option>
+          </select>
+        </div>
+
+        <!-- ACTION -->
+        <div class="actions">
+          <button id="btnCalculate" class="btn-primary">Hitung ⚡</button>
+          <button id="btnExportPng" class="btn-ghost">Download PNG</button>
+        </div>
+
+        <!-- HASIL -->
+        <div id="resultBox" class="resultBox" style="display:none;">
+          <h4> Hasil</h4>
+          <div id="resultText"></div>
+          <div id="distances" class="distances"></div>
+        </div>
+
+        <div class="small muted">Data mengikuti SNI & IES. Bisa dideploy static (Netlify, Vercel) atau Flask (Render).</div>
+      </aside>
+
+      <!-- VISUALIZER -->
+      <section class="visual">
+        <div class="vizHeader">
+          <div>
+            <h4 id="vizTitle">Visualizer</h4>
+            <div class="muted">Denah ruangan & posisi lampu</div>
+          </div>
+          <div id="scaleInfo" class="scaleInfo muted"></div>
+        </div>
+
+        <div class="canvasWrap">
+          <svg id="canvasSVG" viewBox="0 0 900 600" preserveAspectRatio="xMidYMid meet"></svg>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">LightingCalc © 2025 — Professional by@bah</footer>
+  </div>
+
+  <script src="static/app.js"></script>
+</body>
+</html>
