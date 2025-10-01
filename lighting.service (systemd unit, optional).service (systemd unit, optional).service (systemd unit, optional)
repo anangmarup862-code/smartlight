@@ -1,0 +1,13 @@
+[Unit]
+Description=Lighting Calculator Web App
+After=network.target
+
+[Service]
+User=pi
+WorkingDirectory=/home/pi/lighting_project
+Environment="PATH=/home/pi/lighting_project/.venv_lighting/bin"
+ExecStart=/home/pi/lighting_project/.venv_lighting/bin/python /home/pi/lighting_project/app.py
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
