@@ -21,7 +21,14 @@
     <main class="content">
       <!-- PANEL KONTROL -->
       <aside class="panel">
-        <h3>⚡ Perhitungan & Pengaturan</h3>
+        <h3>⚡ Perhitungan & Perencanaan</h3>
+
+        <!-- MODE -->
+        <label class="label">Mode Perhitungan</label>
+        <div id="modeSeg" class="segmented">
+          <button class="seg-btn active" data-mode="mode1">Hitung lampu Per Titik</button>
+          <button class="seg-btn" data-mode="mode2">+ Total KKK</button>
+        </div>
 
         <!-- KATEGORI RUANGAN -->
         <label class="label">Kategori Ruangan</label>
@@ -41,13 +48,6 @@
             <label class="label">Lebar (m)</label>
             <input id="width" type="number" step="0.1" value="4" class="input" />
           </div>
-        </div>
-
-        <!-- MODE -->
-        <label class="label">Mode Perhitungan</label>
-        <div id="modeSeg" class="segmented">
-          <button class="seg-btn active" data-mode="mode1">Mode 1 — Per Titik</button>
-          <button class="seg-btn" data-mode="mode2">Mode 2 — Total + KKK</button>
         </div>
 
         <!-- LAMPU -->
@@ -72,9 +72,6 @@
 
           <label class="label">Manual - Jumlah Lampu</label>
           <input id="manual_count" type="number" class="input"  value="0" min="0" />
-
-          <label class="label">Daya per lampu (W)</label>
-          <select id="manual_count" class="select">
             
           <label class="label">Jumlah KKK</label>
           <input id="kkk_count" type="number" class="input" value="0" min="0"/>
@@ -122,7 +119,8 @@
         <div class="vizHeader">
           <div>
             <h4 id="vizTitle">Visualizer</h4>
-            <div class="muted">Denah ruangan & posisi lampu</div>
+            <div class="muted">Denah ruangan & posisi lampu </div>
+            <div class="muted">ctt: jika posisi/titik lampu tidak seimbang silakan anda ganti lampu yang anda pilih.</div>
           </div>
           <div id="scaleInfo" class="scaleInfo muted"></div>
         </div>
