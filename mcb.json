@@ -1,0 +1,9 @@
+{
+  "1_phase": [6,10,16,20,25,32,40,50,63,80,100],
+  "3_phase": [10,16,20,25,32,40,50,63,80,100,125,160],
+  "characteristics": {
+    "B": "Trip 3-5x In (beban resistif/lighting)",
+    "C": "Trip 5-10x In (motor kecil / beban campuran)",
+    "D": "Trip 10-14x In (beban induktif berat)"
+  }
+}
